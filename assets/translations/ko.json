@@ -20,5 +20,13 @@
   "no_photos": "오늘 사진이 없습니다.",
   "meal_photo_saved": "식사 사진이 저장되었습니다",
   "english": "영어",
-  "korean": "한국어"
+  "korean": "한국어",
+  "food_search": "식품 성분 검색",
+  "enter_food_name": "식품명을 입력하세요",
+  "no_results": "검색 결과가 없습니다",
+  "energy": "에너지",
+  "carbohydrate": "탄수화물",
+  "protein": "단백질",
+  "fat": "지방",
+  "sodium": "나트륨"
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'models/meal_photo.dart';
 
 import 'main.dart'; // ChildProfile·MealPhoto 모델 재사용
 

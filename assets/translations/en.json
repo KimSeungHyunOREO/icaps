@@ -20,5 +20,13 @@
   "no_photos": "No photos for today.",
   "meal_photo_saved": "Meal photo saved",
   "english": "English",
-  "korean": "Korean"
+  "korean": "Korean",
+  "food_search": "Food Search",
+  "enter_food_name": "Enter food name",
+  "no_results": "No results found",
+  "energy": "Energy",
+  "carbohydrate": "Carbohydrate",
+  "protein": "Protein",
+  "fat": "Fat",
+  "sodium": "Sodium"
 }
