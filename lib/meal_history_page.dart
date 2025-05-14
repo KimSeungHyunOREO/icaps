@@ -5,8 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'models/meal_photo.dart';
 
-import 'main.dart'; // ChildProfile·MealPhoto 모델 재사용
-
 class MealHistoryPage extends StatefulWidget {
   final String childName;
   const MealHistoryPage({Key? key, required this.childName}) : super(key: key);
@@ -34,16 +32,22 @@ class _MealHistoryPageState extends State<MealHistoryPage> {
 
   Future<void> _load() async {
     final prefs = await SharedPreferences.getInstance();
-    // 사진 불러오기
-    final stored = prefs.getStringList('meal_photos') ?? [];
+    final key = 'meals_${widget.childName}'; // ✅ 고유 키
+    final stored = prefs.getStringList(key) ?? [];
+
     final photos = stored
         .map((e) => MealPhoto.fromJson(jsonDecode(e)))
-        .where((m) => m.childName == widget.childName && m.date == _dateKey)
+        .where((m) =>
+    m.childName == widget.childName &&
+        m.date.year == _selected.year &&
+        m.date.month == _selected.month &&
+        m.date.day == _selected.day)
         .toList();
-    // 메모 불러오기
+
     final notes = jsonDecode(prefs.getString('meal_notes') ?? '{}')
     as Map<String, dynamic>;
     _noteCtrl.text = notes[_dateKey] ?? '';
+
     setState(() => _photos = photos);
   }
 
@@ -88,10 +92,15 @@ class _MealHistoryPageState extends State<MealHistoryPage> {
               itemBuilder: (_, i) {
                 final m = _photos[i];
                 return ListTile(
-                  leading: Image.file(File(m.imagePath),
-                      width: 60, height: 60, fit: BoxFit.cover),
+                  leading: Image.file(
+                    File(m.imagePath),
+                    width: 60,
+                    height: 60,
+                    fit: BoxFit.cover,
+                  ),
                   title: Text(
-                      '${m.mealType[0].toUpperCase()}${m.mealType.substring(1)}'),
+                    '${m.mealType[0].toUpperCase()}${m.mealType.substring(1)}',
+                  ),
                 );
               },
             ),

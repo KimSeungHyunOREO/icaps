@@ -20,6 +20,7 @@ dependencies:
   table_calendar: ^3.0.9
   cupertino_icons: ^1.0.8
   flutter_tts: ^3.6.3
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -34,3 +35,4 @@ flutter:
     - assets/translations/en.json
     - assets/translations/ko.json
     - assets/data/food_data.json
+    - assets/data/recommended_intake.json

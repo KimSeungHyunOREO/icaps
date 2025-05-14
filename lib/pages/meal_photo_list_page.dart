@@ -1,13 +1,9 @@
-// lib/pages/meal_photo_list_page.dart
-
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/meal_photo.dart';
 
-/// Page: View Today's Meal Photos
 class MealPhotoListPage extends StatefulWidget {
   final String childName;
   const MealPhotoListPage({Key? key, required this.childName}) : super(key: key);
@@ -27,18 +23,19 @@ class _MealPhotoListPageState extends State<MealPhotoListPage> {
 
   Future<void> _loadPhotos() async {
     final prefs = await SharedPreferences.getInstance();
-    final stored = prefs.getStringList('meal_photos') ?? [];
-    final now = DateTime.now();
-    final date =
-        '${now.year.toString().padLeft(4,'0')}-'
-        '${now.month.toString().padLeft(2,'0')}-'
-        '${now.day.toString().padLeft(2,'0')}';
+    final key = 'meals_${widget.childName}'; // ✅ 고유 키
+    final stored = prefs.getStringList(key) ?? [];
+
+    final today = DateTime.now();
 
     setState(() {
       _photos = stored
           .map((e) => MealPhoto.fromJson(jsonDecode(e)))
           .where((m) =>
-      m.childName == widget.childName && m.date == date)
+      m.childName == widget.childName &&
+          m.date.year == today.year &&
+          m.date.month == today.month &&
+          m.date.day == today.day)
           .toList();
     });
   }

@@ -1,0 +1,14 @@
+[
+  { "group": "어린이 (1‑2세)",     "energy": 1100, "carb": 150, "protein": 15, "sodium": 1000 },
+  { "group": "어린이 (3‑5세)",     "energy": 1400, "carb": 180, "protein": 20, "sodium": 1200 },
+  { "group": "아동 (6‑11세)",     "energy": 1800, "carb": 220, "protein": 35, "sodium": 1500 },
+  { "group": "청소년 남 (12‑18세)", "energy": 2400, "carb": 310, "protein": 55, "sodium": 1500 },
+  { "group": "청소년 여 (12‑18세)", "energy": 2000, "carb": 260, "protein": 50, "sodium": 1500 },
+
+  { "group": "성인 남 (19‑29세)",   "energy": 2600, "carb": 330, "protein": 60, "sodium": 2000 },
+  { "group": "성인 여 (19‑29세)",   "energy": 2100, "carb": 270, "protein": 50, "sodium": 1800 },
+  { "group": "성인 남 (30‑49세)",   "energy": 2500, "carb": 320, "protein": 60, "sodium": 2000 },
+  { "group": "성인 여 (30‑49세)",   "energy": 2000, "carb": 260, "protein": 50, "sodium": 1800 },
+  { "group": "성인 남 (50세+)",     "energy": 2300, "carb": 300, "protein": 55, "sodium": 1800 },
+  { "group": "성인 여 (50세+)",     "energy": 1900, "carb": 250, "protein": 45, "sodium": 1700 }
+]
